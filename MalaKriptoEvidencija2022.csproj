@@ -83,6 +83,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="kriptovalute.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="MalaKriptoEvidencija2022.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
