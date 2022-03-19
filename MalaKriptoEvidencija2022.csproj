@@ -46,6 +46,7 @@
     <Compile Include="Kriptovaluta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ulaganje.cs" />
     <Compile Include="Valuta.cs" />
   </ItemGroup>
   <ItemGroup>
