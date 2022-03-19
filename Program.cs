@@ -225,8 +225,8 @@ namespace MalaKriptoEvidencija2022
                     string[] niz = linija.Split('\t');
                     Kriptovaluta kripto = new Kriptovaluta(niz[0], niz[1], double.Parse(niz[2]), long.Parse(niz[3]), long.Parse(niz[4]));
                     kriptovalute.Add(kripto);
-                    Console.WriteLine("- kriptovalute.txt");
                 }
+                Console.WriteLine("- kriptovalute.txt");
             }
             catch
             {
