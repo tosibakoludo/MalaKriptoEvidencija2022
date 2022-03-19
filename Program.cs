@@ -176,17 +176,17 @@ namespace MalaKriptoEvidencija2022
                 sadrzaj += korisnik.ToString().ToUpper() + "\n";
                 if (korisnik.ListaUlaganja.Count == 0)
                 {
-                    sadrzaj += "Nema evidentiranih ulaganja." + "\n";
+                    sadrzaj += "\nNema evidentiranih ulaganja." + "\n";
                 }
                 else
                 {
-                    sadrzaj += "R.B.   |KRIPTO |IZNOS  |CENA   |MESEC \n";
+                    sadrzaj += "\nR.B.   |KRIPTO |IZNOS  |CENA   |MESEC \n";
                     foreach (Ulaganje u in korisnik.ListaUlaganja)
                     {
                         sadrzaj += u + "\n";
                     }
                 }
-                sadrzaj += "Korisnik je najviše uložio u: " + korisnik.valutaSaNajvecimUlogom() + "\n";
+                sadrzaj += "\nKorisnik je najviše uložio u: " + korisnik.valutaSaNajvecimUlogom() + "\n";
                 sadrzaj += "\n";
             }
             Console.WriteLine(sadrzaj);
