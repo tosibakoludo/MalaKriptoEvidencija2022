@@ -46,6 +46,8 @@ namespace MalaKriptoEvidencija2022
                             Console.WriteLine("Zdravo, " + ime + "!");
                             Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
                             Console.WriteLine();
+                            Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
+                            Console.WriteLine();
                             if (korisnik.ListaUlaganja.Count == 0)
                             {
                                 Console.WriteLine("Nema evidentiranih ulaganja.");
@@ -67,7 +69,7 @@ namespace MalaKriptoEvidencija2022
                                 if (odg1 == "Da" || odg1 == "da" || odg1 == "DA" || odg1 == "dA")
                                 {
                                     Console.Write("Unesi kod kriptovalute (npr. BTC): ");
-                                    string sifraKriptovalute = Console.ReadLine();
+                                    string sifraKriptovalute = Console.ReadLine().ToUpper();
                                     Console.Write("Unesi iznos ulaganja (EUR): ");
                                     double iznos;
                                     try
@@ -111,6 +113,8 @@ namespace MalaKriptoEvidencija2022
                                     Console.WriteLine();
                                     Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
                                     Console.WriteLine();
+                                    Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
+                                    Console.WriteLine();
                                     if (korisnik.ListaUlaganja.Count == 0)
                                     {
                                         Console.WriteLine("Nema evidentiranih ulaganja.");
@@ -135,7 +139,7 @@ namespace MalaKriptoEvidencija2022
                     }
                     if (!nadjen)
                     {
-                        Console.WriteLine("Korisnik nije pronađen, probajte ponovo, ili registrujte novog korisnika.");
+                        Console.WriteLine("Korisnik nije pronadjen, probajte ponovo, ili registrujte novog korisnika.");
                     }
                 }
                 else if (opcija == "2")
@@ -170,6 +174,7 @@ namespace MalaKriptoEvidencija2022
             {
                 sadrzaj += "Korisnik: ";
                 sadrzaj += korisnik.ToString().ToUpper() + "\n";
+                sadrzaj += "R.B.   |KRIPTO |IZNOS  |CENA   |MESEC \n";
                 if (korisnik.ListaUlaganja.Count == 0)
                 {
                     sadrzaj += "Nema evidentiranih ulaganja." + "\n";
