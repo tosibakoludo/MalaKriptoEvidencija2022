@@ -46,14 +46,14 @@ namespace MalaKriptoEvidencija2022
                             Console.WriteLine("Zdravo, " + ime + "!");
                             Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
                             Console.WriteLine();
-                            Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
-                            Console.WriteLine();
                             if (korisnik.ListaUlaganja.Count == 0)
                             {
                                 Console.WriteLine("Nema evidentiranih ulaganja.");
                             }
                             else
                             {
+                                Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
+                                Console.WriteLine();
                                 foreach (Ulaganje u in korisnik.ListaUlaganja)
                                 {
                                     Console.WriteLine(u);
@@ -113,14 +113,14 @@ namespace MalaKriptoEvidencija2022
                                     Console.WriteLine();
                                     Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
                                     Console.WriteLine();
-                                    Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
-                                    Console.WriteLine();
                                     if (korisnik.ListaUlaganja.Count == 0)
                                     {
                                         Console.WriteLine("Nema evidentiranih ulaganja.");
                                     }
                                     else
                                     {
+                                        Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
+                                        Console.WriteLine();
                                         foreach (Ulaganje u in korisnik.ListaUlaganja)
                                         {
                                             Console.WriteLine(u);
@@ -174,13 +174,13 @@ namespace MalaKriptoEvidencija2022
             {
                 sadrzaj += "Korisnik: ";
                 sadrzaj += korisnik.ToString().ToUpper() + "\n";
-                sadrzaj += "R.B.   |KRIPTO |IZNOS  |CENA   |MESEC \n";
                 if (korisnik.ListaUlaganja.Count == 0)
                 {
                     sadrzaj += "Nema evidentiranih ulaganja." + "\n";
                 }
                 else
                 {
+                    sadrzaj += "R.B.   |KRIPTO |IZNOS  |CENA   |MESEC \n";
                     foreach (Ulaganje u in korisnik.ListaUlaganja)
                     {
                         sadrzaj += u + "\n";

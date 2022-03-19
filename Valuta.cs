@@ -15,9 +15,9 @@ namespace MalaKriptoEvidencija2022
         public string Sifra { get => sifra;
             set
             {
-                if (value.Length > 4)
+                if (value.Length > 5)
                 {
-                    throw new Exception("Šifra valute ne može biti duža od 4. Npr: BTC, ETH, USDT, USDC, LUNA, SOL, AVAX.");
+                    throw new Exception("Šifra valute ne može biti duža od 5. Npr: RSD, EUR, USD, BTC, ETH, USDT, USDC.");
                 }
                 sifra = value;
             }
