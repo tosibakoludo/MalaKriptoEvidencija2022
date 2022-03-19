@@ -17,7 +17,7 @@ namespace MalaKriptoEvidencija2022
             {
                 if (value.Length > 4)
                 {
-                    throw new Exception("Šifra valute ne može biti duža od 4. Npr: BTC, ETH, USDT, BNB, USDC, AVAX.");
+                    throw new Exception("Šifra valute ne može biti duža od 4. Npr: BTC, ETH, USDT, USDC, LUNA, SOL, AVAX.");
                 }
                 sifra = value;
             }
