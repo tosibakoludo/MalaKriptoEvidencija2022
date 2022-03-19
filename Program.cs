@@ -13,7 +13,7 @@ namespace MalaKriptoEvidencija2022
         public static MalaKriptoEvidencija2022DataSetTableAdapters.KorisnikTableAdapter ad1 = new MalaKriptoEvidencija2022DataSetTableAdapters.KorisnikTableAdapter();
 
         public static MalaKriptoEvidencija2022DataSetTableAdapters.UlaganjeTableAdapter ad2 = new MalaKriptoEvidencija2022DataSetTableAdapters.UlaganjeTableAdapter();
-        static void Main(string[] args)
+        static void Main()
         {
 
             List<Kriptovaluta> kriptovalute = new List<Kriptovaluta>();
@@ -155,7 +155,7 @@ namespace MalaKriptoEvidencija2022
                 else if (opcija == "3")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dovidjenja");
+                    Console.WriteLine("Dovidjenja!\n");
                     dozvola = false;
                 }
             }
