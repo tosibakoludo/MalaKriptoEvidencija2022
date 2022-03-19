@@ -187,7 +187,7 @@ namespace MalaKriptoEvidencija2022
                     }
                 }
                 sadrzaj += "\nKorisnik je najviše uložio u: " + korisnik.valutaSaNajvecimUlogom() + "\n";
-                sadrzaj += "\n";
+                sadrzaj += "\n\n";
             }
             Console.WriteLine(sadrzaj);
             string fajl = "izvestaj" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".txt";
