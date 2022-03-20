@@ -1,5 +1,5 @@
 # MalaKriptoEvidencija2022
-Završni projekat osnovnog kursa C# ITOIP-a
+Završni projekat osnovnog C# kursa ITOIP-a
 
 Program je napisan prvenstveno sa namerom da se demonstrira korišćenje koncepata savladanih na kursu.
 Omogućava korisniku da vodi evidenciju ulaganja u kriptovalute u 2022.
