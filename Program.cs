@@ -94,7 +94,7 @@ namespace MalaKriptoEvidencija2022
                                     }
                                     Console.Write("Unesi mesec (npr. januar): ");
                                     string mesec = Console.ReadLine().ToLower();
-                                    int redniBroj = korisnik.redniBroj();
+                                    int redniBroj = korisnik.RedniBroj();
                                     Ulaganje un;
                                     try
                                     {
@@ -186,7 +186,7 @@ namespace MalaKriptoEvidencija2022
                         sadrzaj += u + "\n";
                     }
                 }
-                sadrzaj += "\nKorisnik je najviše uložio u: " + korisnik.valutaSaNajvecimUlogom() + "\n";
+                sadrzaj += "\nKorisnik je najviše uložio u: " + korisnik.ValutaSaNajvecimUlogom() + "\n";
                 sadrzaj += "\n\n";
             }
             Console.WriteLine(sadrzaj);
@@ -248,13 +248,13 @@ namespace MalaKriptoEvidencija2022
 
             foreach (Korisnik korisnik in korisnici)
             {
-                korisnik.obrisi();
+                korisnik.Obrisi();
                 foreach (DataRow r1 in t1.Rows)
                 {
                     if (r1[0].ToString() == korisnik.Ime)
                     {
                         Ulaganje u = new Ulaganje(int.Parse(r1[1].ToString()), r1[2].ToString(), double.Parse(r1[3].ToString()), double.Parse(r1[4].ToString()), r1[5].ToString());
-                        korisnik.dodaj(u);
+                        korisnik.Dodaj(u);
                     }
                 }
             }
