@@ -242,19 +242,19 @@ namespace MalaKriptoEvidencija2022
 
         private static void UcitajUlaganjaIzBaze(List<Korisnik> korisnici)
         {
-            MalaKriptoEvidencija2022DataSet.UlaganjeDataTable t1 = new MalaKriptoEvidencija2022DataSet.UlaganjeDataTable();
+            MalaKriptoEvidencija2022DataSet.UlaganjeDataTable t = new MalaKriptoEvidencija2022DataSet.UlaganjeDataTable();
 
-            ad2.Fill(t1);
+            ad2.Fill(t);
 
             foreach (Korisnik korisnik in korisnici)
             {
-                korisnik.Obrisi();
-                foreach (DataRow r1 in t1.Rows)
+                korisnik.ListaUlaganja.Clear();
+                foreach (DataRow r in t.Rows)
                 {
-                    if (r1[0].ToString() == korisnik.Ime)
+                    if (r[0].ToString() == korisnik.Ime)
                     {
-                        Ulaganje u = new Ulaganje(int.Parse(r1[1].ToString()), r1[2].ToString(), double.Parse(r1[3].ToString()), double.Parse(r1[4].ToString()), r1[5].ToString());
-                        korisnik.Dodaj(u);
+                        Ulaganje u = new Ulaganje(int.Parse(r[1].ToString()), r[2].ToString(), double.Parse(r[3].ToString()), double.Parse(r[4].ToString()), r[5].ToString());
+                        korisnik.ListaUlaganja.Add(u);
                     }
                 }
             }

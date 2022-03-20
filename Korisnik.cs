@@ -38,19 +38,9 @@ namespace MalaKriptoEvidencija2022
             }
         }
 
-        public void Dodaj(Ulaganje ulaganje)
-        {
-            listaUlaganja.Add(ulaganje);
-        }
-
         public int RedniBroj()
         {
             return listaUlaganja.Count + 1;
-        }
-
-        public void Obrisi()
-        {
-            listaUlaganja.Clear();
         }
 
         public string ValutaSaNajvecimUlogom()
