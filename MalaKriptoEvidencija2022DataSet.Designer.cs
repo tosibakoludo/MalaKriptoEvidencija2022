@@ -318,6 +318,10 @@ namespace MalaKriptoEvidencija2022 {
             
             private global::System.Data.DataColumn columnPrezime;
             
+            private global::System.Data.DataColumn columnKorisnicko_ime;
+            
+            private global::System.Data.DataColumn columnLozinka;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public KorisnikDataTable() {
@@ -369,6 +373,22 @@ namespace MalaKriptoEvidencija2022 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Korisnicko_imeColumn {
+                get {
+                    return this.columnKorisnicko_ime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn LozinkaColumn {
+                get {
+                    return this.columnLozinka;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -404,11 +424,13 @@ namespace MalaKriptoEvidencija2022 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public KorisnikRow AddKorisnikRow(string Ime, string Prezime) {
+            public KorisnikRow AddKorisnikRow(string Ime, string Prezime, string Korisnicko_ime, string Lozinka) {
                 KorisnikRow rowKorisnikRow = ((KorisnikRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Ime,
-                        Prezime};
+                        Prezime,
+                        Korisnicko_ime,
+                        Lozinka};
                 rowKorisnikRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKorisnikRow);
                 return rowKorisnikRow;
@@ -433,6 +455,8 @@ namespace MalaKriptoEvidencija2022 {
             internal void InitVars() {
                 this.columnIme = base.Columns["Ime"];
                 this.columnPrezime = base.Columns["Prezime"];
+                this.columnKorisnicko_ime = base.Columns["Korisnicko ime"];
+                this.columnLozinka = base.Columns["Lozinka"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,8 +466,14 @@ namespace MalaKriptoEvidencija2022 {
                 base.Columns.Add(this.columnIme);
                 this.columnPrezime = new global::System.Data.DataColumn("Prezime", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrezime);
+                this.columnKorisnicko_ime = new global::System.Data.DataColumn("Korisnicko ime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKorisnicko_ime);
+                this.columnLozinka = new global::System.Data.DataColumn("Lozinka", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLozinka);
                 this.columnIme.MaxLength = 255;
                 this.columnPrezime.MaxLength = 255;
+                this.columnKorisnicko_ime.MaxLength = 255;
+                this.columnLozinka.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -938,6 +968,38 @@ namespace MalaKriptoEvidencija2022 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Korisnicko_ime {
+                get {
+                    try {
+                        return ((string)(this[this.tableKorisnik.Korisnicko_imeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Korisnicko ime\' in table \'Korisnik\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKorisnik.Korisnicko_imeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Lozinka {
+                get {
+                    try {
+                        return ((string)(this[this.tableKorisnik.LozinkaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Lozinka\' in table \'Korisnik\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableKorisnik.LozinkaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsImeNull() {
                 return this.IsNull(this.tableKorisnik.ImeColumn);
             }
@@ -958,6 +1020,30 @@ namespace MalaKriptoEvidencija2022 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPrezimeNull() {
                 this[this.tableKorisnik.PrezimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsKorisnicko_imeNull() {
+                return this.IsNull(this.tableKorisnik.Korisnicko_imeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetKorisnicko_imeNull() {
+                this[this.tableKorisnik.Korisnicko_imeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsLozinkaNull() {
+                return this.IsNull(this.tableKorisnik.LozinkaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetLozinkaNull() {
+                this[this.tableKorisnik.LozinkaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1339,13 +1425,18 @@ namespace MalaKriptoEvidencija2022.MalaKriptoEvidencija2022DataSetTableAdapters 
             tableMapping.DataSetTable = "Korisnik";
             tableMapping.ColumnMappings.Add("Ime", "Ime");
             tableMapping.ColumnMappings.Add("Prezime", "Prezime");
+            tableMapping.ColumnMappings.Add("Korisnicko ime", "Korisnicko ime");
+            tableMapping.ColumnMappings.Add("Lozinka", "Lozinka");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Korisnik` (`Ime`, `Prezime`) VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Korisnik` (`Ime`, `Prezime`, `Korisnicko ime`, `Lozinka`) VALUES (?," +
+                " ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Ime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Prezime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Prezime", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Korisnicko_ime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Korisnicko ime", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Lozinka", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Lozinka", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1361,7 +1452,7 @@ namespace MalaKriptoEvidencija2022.MalaKriptoEvidencija2022DataSetTableAdapters 
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Ime, Prezime FROM Korisnik";
+            this._commandCollection[0].CommandText = "SELECT Ime, Prezime, [Korisnicko ime], Lozinka FROM Korisnik";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1422,7 +1513,7 @@ namespace MalaKriptoEvidencija2022.MalaKriptoEvidencija2022DataSetTableAdapters 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Ime, string Prezime) {
+        public virtual int Insert(string Ime, string Prezime, string Korisnicko_ime, string Lozinka) {
             if ((Ime == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1434,6 +1525,18 @@ namespace MalaKriptoEvidencija2022.MalaKriptoEvidencija2022DataSetTableAdapters 
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Prezime));
+            }
+            if ((Korisnicko_ime == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Korisnicko_ime));
+            }
+            if ((Lozinka == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Lozinka));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

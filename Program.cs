@@ -36,14 +36,14 @@ namespace MalaKriptoEvidencija2022
                 {
                     Console.Clear();
                     TrentnoStanjeKriptovaluta(kriptovalute);
-                    Console.Write("Ime: ");
-                    string ime = Console.ReadLine();
+                    Console.Write("Korisničko ime: ");
+                    string korisnickoIme = Console.ReadLine();
                     bool nadjen = false;
                     foreach (Korisnik korisnik in korisnici)
                     {
-                        if (ime == korisnik.Ime)
+                        if (korisnickoIme == korisnik.KorisnickoIme)
                         {
-                            Console.WriteLine("Zdravo, " + ime + "!");
+                            Console.WriteLine("Zdravo, " + korisnik.Ime + "!");
                             Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
                             Console.WriteLine();
                             if (korisnik.ListaUlaganja.Count == 0)
@@ -109,7 +109,7 @@ namespace MalaKriptoEvidencija2022
                                     UcitajUlaganjaIzBaze(korisnici);
                                     Console.Clear();
                                     TrentnoStanjeKriptovaluta(kriptovalute);
-                                    Console.WriteLine("Bravo, " + ime + "!");
+                                    Console.WriteLine("Bravo, " + korisnik.Ime + "!");
                                     Console.WriteLine();
                                     Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
                                     Console.WriteLine();
@@ -150,8 +150,20 @@ namespace MalaKriptoEvidencija2022
                     string ime = Console.ReadLine();
                     Console.Write("Prezime: ");
                     string prezime = Console.ReadLine();
-                    Korisnik k = new Korisnik(ime, prezime);
-                    ad1.Insert(k.Ime, k.Prezime);
+                    Console.Write("Korisničko ime: ");
+                    string korisnickoIme = Console.ReadLine();
+                    foreach (Korisnik korisnik in korisnici)
+                    {
+                        if (korisnik.KorisnickoIme == korisnickoIme)
+                        {
+                            Console.WriteLine("Korisnik sa izabranim korisničkim imenom već postoji, molimo probajte ponovo.");
+                            return;
+                        }    
+                    }
+                    Console.Write("Lozinka: ");
+                    string lozinka = Console.ReadLine();
+                    Korisnik k = new Korisnik(ime, prezime, korisnickoIme, lozinka);
+                    ad1.Insert(k.Ime, k.Prezime, k.KorisnickoIme, k.Lozinka);
                     korisnici = UcitajKorisnikeIzBaze();
                     UcitajUlaganjaIzBaze(korisnici);
                     Console.WriteLine("Uspešno ste registrovani. Možete se prijaviti.");
@@ -269,7 +281,7 @@ namespace MalaKriptoEvidencija2022
 
             foreach (DataRow r in t.Rows)
             {
-                Korisnik korisnik = new Korisnik(r[0].ToString(), r[1].ToString());
+                Korisnik korisnik = new Korisnik(r[0].ToString(), r[1].ToString(), r[2].ToString(), r[3].ToString());
                 korisnici.Add(korisnik);
             }
 

@@ -8,22 +8,64 @@ namespace MalaKriptoEvidencija2022
 {
     class Korisnik
     {
-        private string ime, prezime;
+        private string ime, prezime, korisnickoIme, lozinka;
 
         private List<Ulaganje> listaUlaganja;
 
-        public Korisnik(string ime, string prezime)
+        public Korisnik(string ime, string prezime, string korisnickoIme, string lozinka)
         {
             this.Ime = ime;
             this.Prezime = prezime;
+            this.korisnickoIme = korisnickoIme;
+            this.lozinka = lozinka;
             listaUlaganja = new List<Ulaganje>();
         }
 
-        public string Ime { get => ime; set => ime = value; }
+        public string Ime { get => ime; 
+            set
+            {
+                if (value.Trim().Length < 1)
+                {
+                    throw new Exception("Ime mora sadžati makar jedan karakter.");
+                }
+                ime = value;
+            }
+        }
 
-        public string Prezime { get => prezime; set => prezime = value; }
+        public string Prezime { get => prezime;
+            set
+            {
+                if (value.Trim().Length < 1)
+                {
+                    throw new Exception("Prezime mora sadžati makar jedan karakter.");
+                }
+                prezime = value;
+            }
+        }
 
         public List<Ulaganje> ListaUlaganja { get => listaUlaganja; }
+
+        public string KorisnickoIme { get => korisnickoIme;
+            set
+            {
+                if (value.Trim().Length < 1)
+                {
+                    throw new Exception("Korisničko ime mora sadžati makar jedan karakter.");
+                }
+                korisnickoIme = value;
+            }
+        }
+
+        public string Lozinka { get => lozinka;
+            set
+            {
+                if (value.Trim().Length < 1)
+                {
+                    throw new Exception("Lozinka mora sadžati makar jedan karakter.");
+                }
+                lozinka = value;
+            }
+        }
 
         //indekser
         public Ulaganje this[int index]
