@@ -38,10 +38,21 @@ namespace MalaKriptoEvidencija2022
                     TrentnoStanjeKriptovaluta(kriptovalute);
                     Console.Write("Korisničko ime: ");
                     string korisnickoIme = Console.ReadLine();
+                    Console.Write("Lozinka: ");
+                    string lozinka = null;
+                    while (true)
+                    {
+                        var key = Console.ReadKey(true);
+                        if (key.Key == ConsoleKey.Enter)
+                            break;
+                        lozinka += key.KeyChar;
+                    }
+                    Console.WriteLine();
                     bool nadjen = false;
+                    bool dobraLozinka = false;
                     foreach (Korisnik korisnik in korisnici)
                     {
-                        if (korisnickoIme == korisnik.KorisnickoIme)
+                        if (korisnickoIme == korisnik.KorisnickoIme && lozinka == korisnik.Lozinka)
                         {
                             Console.WriteLine("Zdravo, " + korisnik.Ime + "!");
                             Console.WriteLine("U nastavku je lista tvojih dosadašnjih ulaganja: ");
@@ -61,6 +72,7 @@ namespace MalaKriptoEvidencija2022
                             }
                             Console.WriteLine();
                             nadjen = true;
+                            dobraLozinka = true;
                             bool dodajUlaganje = true;
                             while (dodajUlaganje)
                             {
@@ -136,10 +148,19 @@ namespace MalaKriptoEvidencija2022
                                 }
                             }
                         }
+                        else if (korisnickoIme == korisnik.KorisnickoIme)
+                        {
+                            nadjen = true;
+                            dobraLozinka = false;
+                        }
                     }
                     if (!nadjen)
                     {
                         Console.WriteLine("Korisnik nije pronadjen, probajte ponovo, ili registrujte novog korisnika.");
+                    }
+                    else if (!dobraLozinka)
+                    {
+                        Console.WriteLine("Niste uneli dobru lozinku, probajte ponovo.");
                     }
                 }
                 else if (opcija == "2")
