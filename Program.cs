@@ -15,6 +15,7 @@ namespace MalaKriptoEvidencija2022
         public static MalaKriptoEvidencija2022DataSetTableAdapters.UlaganjeTableAdapter ad2 = new MalaKriptoEvidencija2022DataSetTableAdapters.UlaganjeTableAdapter();
         static void Main()
         {
+            Console.OutputEncoding = Encoding.Unicode;
 
             List<Kriptovaluta> kriptovalute = new List<Kriptovaluta>();
 
@@ -29,7 +30,7 @@ namespace MalaKriptoEvidencija2022
                 Console.WriteLine("Odaberi opciju: ");
                 Console.WriteLine("(1) prijavi se");
                 Console.WriteLine("(2) registruj se");
-                Console.WriteLine("(3) izadji iz programa");
+                Console.WriteLine("(3) izađi iz programa");
                 Console.Write(":");
                 string opcija = Console.ReadLine();
                 if (opcija == "1")
@@ -63,7 +64,7 @@ namespace MalaKriptoEvidencija2022
                             }
                             else
                             {
-                                Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
+                                Console.WriteLine("R.B.   |KRIPTO |IZN.(€)|CENA($)|MESEC ");
                                 Console.WriteLine();
                                 foreach (Ulaganje u in korisnik.ListaUlaganja)
                                 {
@@ -131,7 +132,7 @@ namespace MalaKriptoEvidencija2022
                                     }
                                     else
                                     {
-                                        Console.WriteLine("R.B.   |KRIPTO |IZNOS  |CENA   |MESEC ");
+                                        Console.WriteLine("R.B.   |KRIPTO |IZN.(€)|CENA($)|MESEC ");
                                         Console.WriteLine();
                                         foreach (Ulaganje u in korisnik.ListaUlaganja)
                                         {
@@ -156,7 +157,7 @@ namespace MalaKriptoEvidencija2022
                     }
                     if (!nadjen)
                     {
-                        Console.WriteLine("Korisnik nije pronadjen, probajte ponovo, ili registrujte novog korisnika.");
+                        Console.WriteLine("Korisnik nije pronađen, probajte ponovo, ili registrujte novog korisnika.");
                     }
                     else if (!dobraLozinka)
                     {
@@ -207,7 +208,7 @@ namespace MalaKriptoEvidencija2022
                 else if (opcija == "3")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dovidjenja!\n");
+                    Console.WriteLine("Doviđenja!\n");
                     dozvola = false;
                 }
             }
@@ -228,7 +229,7 @@ namespace MalaKriptoEvidencija2022
                 }
                 else
                 {
-                    sadrzaj += "\nR.B.   |KRIPTO |IZNOS  |CENA   |MESEC \n";
+                    sadrzaj += "\nR.B.   |KRIPTO |IZN.(€)|CENA($)|MESEC \n";
                     foreach (Ulaganje u in korisnik.ListaUlaganja)
                     {
                         sadrzaj += u + "\n";
