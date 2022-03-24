@@ -40,15 +40,16 @@ namespace MalaKriptoEvidencija2022
                     Console.Write("Korisničko ime: ");
                     string korisnickoIme = Console.ReadLine();
                     Console.Write("Lozinka: ");
-                    string lozinka = null;
-                    while (true)
-                    {
-                        var key = Console.ReadKey(true);
-                        if (key.Key == ConsoleKey.Enter)
-                            break;
-                        lozinka += key.KeyChar;
-                    }
-                    Console.WriteLine();
+                    //string lozinka = "";
+                    //while (true)
+                    //{
+                    //    var key = Console.ReadKey(true);
+                    //    if (key.Key == ConsoleKey.Enter)
+                    //        break;
+                    //    lozinka += key.KeyChar;
+                    //}
+                    //Console.WriteLine();
+                    string lozinka = ReadPassword();
                     bool nadjen = false;
                     bool dobraLozinka = false;
                     foreach (Korisnik korisnik in korisnici)
@@ -190,15 +191,16 @@ namespace MalaKriptoEvidencija2022
                         continue;
                     }
                     Console.Write("Lozinka: ");
-                    string lozinka = null;
-                    while (true)
-                    {
-                        var key = Console.ReadKey(true);
-                        if (key.Key == ConsoleKey.Enter)
-                            break;
-                        lozinka += key.KeyChar;
-                    }
-                    Console.WriteLine();
+                    //string lozinka = "";
+                    //while (true)
+                    //{
+                    //    var key = Console.ReadKey(true);
+                    //    if (key.Key == ConsoleKey.Enter)
+                    //        break;
+                    //    lozinka += key.KeyChar;
+                    //}
+                    //Console.WriteLine();
+                    string lozinka = ReadPassword();
                     Korisnik k = new Korisnik(ime, prezime, korisnickoIme, lozinka);
                     ad1.Insert(k.Ime, k.Prezime, k.KorisnickoIme, k.Lozinka);
                     korisnici = UcitajKorisnikeIzBaze();
@@ -214,6 +216,40 @@ namespace MalaKriptoEvidencija2022
             }
 
             IzvestajOKoriscenjuPrograma(korisnici);
+        }
+
+        private static string ReadPassword()
+        {
+            string password = "";
+            ConsoleKeyInfo info = Console.ReadKey(true);
+            while (info.Key != ConsoleKey.Enter)
+            {
+                if (info.Key != ConsoleKey.Backspace)
+                {
+                    Console.Write("*");
+                    password += info.KeyChar;
+                }
+                else if (info.Key == ConsoleKey.Backspace)
+                {
+                    if (!string.IsNullOrEmpty(password))
+                    {
+                        // remove one character from the list of password characters
+                        password = password.Substring(0, password.Length - 1);
+                        // get the location of the cursor
+                        int pos = Console.CursorLeft;
+                        // move the cursor to the left by one character
+                        Console.SetCursorPosition(pos - 1, Console.CursorTop);
+                        // replace it with space
+                        Console.Write(" ");
+                        // move the cursor to the left by one character again
+                        Console.SetCursorPosition(pos - 1, Console.CursorTop);
+                    }
+                }
+                info = Console.ReadKey(true);
+            }
+            // add a new line because user pressed enter at the end of their password
+            Console.WriteLine();
+            return password;
         }
 
         private static void IzvestajOKoriscenjuPrograma(List<Korisnik> korisnici)
