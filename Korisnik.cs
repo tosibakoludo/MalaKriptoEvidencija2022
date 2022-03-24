@@ -16,8 +16,8 @@ namespace MalaKriptoEvidencija2022
         {
             this.Ime = ime;
             this.Prezime = prezime;
-            this.korisnickoIme = korisnickoIme;
-            this.lozinka = lozinka;
+            this.KorisnickoIme = korisnickoIme;
+            this.Lozinka = lozinka;
             listaUlaganja = new List<Ulaganje>();
         }
 

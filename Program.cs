@@ -201,7 +201,16 @@ namespace MalaKriptoEvidencija2022
                     //}
                     //Console.WriteLine();
                     string lozinka = ReadPassword();
-                    Korisnik k = new Korisnik(ime, prezime, korisnickoIme, lozinka);
+                    Korisnik k;
+                    try
+                    {
+                        k = new Korisnik(ime, prezime, korisnickoIme, lozinka);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        continue;
+                    }
                     ad1.Insert(k.Ime, k.Prezime, k.KorisnickoIme, k.Lozinka);
                     korisnici = UcitajKorisnikeIzBaze();
                     UcitajUlaganjaIzBaze(korisnici);
